@@ -1,6 +1,6 @@
 <template>
-  <div id="app" class="row">
-    <BlogPostSummary
+  <div id="app" class="row u-equal-height">
+    <blog-post-summary
       class="col-4 col-medium-2 col-small-4"
       v-for="blog in blogs"
       :key="blog.id"
@@ -27,10 +27,10 @@ export default {
       this.blogs = await fetch(
         "https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json "
       ).then((res) => res.json());
-      console.log(this.blogs);
     },
   },
   created() {
+    //fetch blog posts and pass to blogs array which will be used to create components
     this.getBlogPosts();
   },
 };
