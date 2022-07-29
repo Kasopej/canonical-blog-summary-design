@@ -1,8 +1,13 @@
 @import 'vanilla-framework';
 @include vf-base;
 
+@include vf-p-grid;
 @include vf-p-card;
 
-* {
-    background-color: red;
+.row {
+    padding-top: 10px;
+}
+
+.text-primary {
+    color: blue;
 }

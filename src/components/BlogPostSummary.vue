@@ -1,23 +1,24 @@
 <template>
-  <div class="row">
-    <div class="col-4">
-      <div class="p-card">
-        <div class="p-card__content">
-          <img
-            class="p-card__image"
-            alt=""
-            height="185"
-            width="330"
-            src="https://assets.ubuntu.com/v1/36f1139e-Design-and-Web-Team-Blog.jpg"
-          />
-          <h4>
-            <a href="#">Open Source Robotics Challenges</a>
-          </h4>
-          <p class="u-no-padding--bottom">
-            Open Source Robotics Challenges is a series of blogs...
-          </p>
-        </div>
-      </div>
+  <div class="p-card">
+    <div class="p-card__content">
+      <img
+        class="p-card__image"
+        alt=""
+        height="185"
+        width="330"
+        :src="blog.featured_media"
+      />
+      <h4>
+        <a href="#">{{ blog.title.rendered }}</a>
+      </h4>
+      <p class="u-no-padding--bottom">
+        By <a class="text-primary">{{ blog._embedded.author[0].name }}</a> on
+        {{ formattedDate }}
+      </p>
+    </div>
+    <hr />
+    <div class="p-card__content">
+      {{ blog.type | capitalize }}
     </div>
   </div>
 </template>
@@ -25,6 +26,22 @@
 <script>
 export default {
   name: "BlogPostSummary",
+  props: {
+    blog: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    formattedDate() {
+      return `${new Date(this.blog.date).toDateString().slice(4)}`;
+    },
+  },
+  filters: {
+    capitalize(string) {
+      return string[0].toUpperCase() + string.slice(1);
+    },
+  },
 };
 </script>
 
