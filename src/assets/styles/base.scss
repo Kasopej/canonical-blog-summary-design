@@ -1,0 +1,8 @@
+@import 'vanilla-framework';
+@include vf-base;
+
+@include vf-p-card;
+
+* {
+    background-color: red;
+}
