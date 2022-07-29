@@ -23,7 +23,6 @@ $font-base-family: "Ubuntu", -apple-system, "Segoe UI", "Roboto", "Oxygen", "Can
     border-radius: 2px;
     padding-top: calc(1rem - 5px);
     box-shadow: 0 0 2px 2px rgb(0 0 0 / 15%);
-    overflow: hidden;
 
     a {
 
@@ -54,8 +53,6 @@ $font-base-family: "Ubuntu", -apple-system, "Segoe UI", "Roboto", "Oxygen", "Can
     
     .fix-height {
         height: 85px;
-        overflow: hidden;
-        font-size: 20px;
     }
     
     .branded-border {
