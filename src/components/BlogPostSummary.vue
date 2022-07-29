@@ -16,9 +16,11 @@
         <a class="text-primary p-heading--3">{{ blog.title.rendered }}</a>
       </div>
       <p class="author">
-        By
-        <a class="text-primary">{{ blog._embedded.author[0].name }}</a>
-        on
+        <em>
+          By
+          <a class="text-primary">{{ blog._embedded.author[0].name }}</a>
+          on
+        </em>
         {{ formattedDate }}
       </p>
     </div>
