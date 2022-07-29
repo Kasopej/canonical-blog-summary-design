@@ -1,28 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <BlogPostSummary v-for="blog in blogs" :key="blog.id" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import BlogPostSummary from "./components/BlogPostSummary.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    BlogPostSummary,
+  },
+  data() {
+    return {
+      blogs: [],
+    };
+  },
+  methods: {
+    async getBlogPosts() {
+      this.blogs = await fetch(
+        "https://people.canonical.com/~anthonydillon/wp-json/wp/v2/posts.json "
+      ).then((res) => res.json());
+      console.log(this.blogs);
+    },
+  },
+  created() {
+    this.getBlogPosts();
   },
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import "assets/styles/base.scss";
 </style>
