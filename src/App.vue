@@ -1,6 +1,11 @@
 <template>
-  <div id="app">
-    <BlogPostSummary v-for="blog in blogs" :key="blog.id" />
+  <div id="app" class="row">
+    <BlogPostSummary
+      class="col-4 col-medium-2 col-small-4"
+      v-for="blog in blogs"
+      :key="blog.id"
+      :blog="blog"
+    />
   </div>
 </template>
 
